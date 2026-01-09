@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Drive AI - Advanced Driver Monitoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="hero">
+        <nav class="navbar glass">
+            <div class="logo">Safe Drive <span>AI</span></div>
+            <div class="nav-btns">
+                <a href="/login" class="btn btn-primary">Driver Login</a>
+                <a href="/admin-login" class="btn btn-outline">Admin Access</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="fade-in">Intelligent Safety for Every Journey</h1>
+            <p class="fade-in">Real-time drowsiness detection using advanced neural vision to protect you on the road.</p>
+            <div class="cta-group fade-in">
+                <a href="/register" class="btn btn-large">Join Now</a>
+                <a href="#about" class="btn btn-text">Learn More <i class="fas fa-chevron-down"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="features">
+        <h2 class="section-title">Why Choose Safe Drive AI?</h2>
+        <div class="scroll-container">
+            <div class="feature-card glass">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast</h3>
+                <p>Sub-millisecond facial landmark tracking ensures the alarm triggers the moment fatigue is detected.</p>
+            </div>
+            <div class="feature-card glass">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure</h3>
+                <p>Local browser-based processing means your video feed is never uploaded to a server, ensuring 100% privacy.</p>
+            </div>
+            <div class="feature-card glass">
+                <i class="fas fa-chart-line"></i>
+                <h3>Real-time Insights</h3>
+                <p>Get instant feedback on your driving habits and detailed monthly reports on your alertness levels.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Developed by</h3>
+                <p class="dev-name">Hariprasad Pulyala</p>
+                <address>
+                    Vidyanagar, Karimnagar<br>
+                    Sree Chaitanya College of Engineering
+                </address>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Safe Drive AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Safe Drive AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container glass">
+        <div class="auth-toggle">
+            <button id="loginBtn" class="active" onclick="showLogin()">Login</button>
+            <button id="registerBtn" onclick="showRegister()">Register</button>
+        </div>
+
+        <form id="loginForm" class="auth-form" action="/login" method="POST">
+            <h2>Welcome Back</h2>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login to Drive</button>
+        </form>
+
+        <form id="registerForm" class="auth-form hidden" action="/register" method="POST">
+            <h2>Driver Registration</h2>
+            
+            <div class="input-group">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group"><input type="number" name="age" placeholder="Age" required></div>
+                <div class="input-group"><input type="date" name="dob" title="Date of Birth" required></div>
+            </div>
+
+            <div class="input-group">
+                <textarea name="address" placeholder="Residential Address" required></textarea>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group"><input type="text" name="mobile" placeholder="Mobile Number" required></div>
+                <div class="input-group"><input type="email" name="email" placeholder="Email ID" required></div>
+            </div>
+
+            <div class="input-group">
+                <select name="vehicle_type" required>
+                    <option value="" disabled selected>Select Vehicle Type</option>
+                    <option value="2-Wheeler">2-Wheeler</option>
+                    <option value="4-Wheeler">4-Wheeler</option>
+                    <option value="Heavy Vehicle">Heavy Vehicle</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="vehicle_no" placeholder="Vehicle Registration Number" required>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group"><input type="text" name="reg_username" placeholder="Choose Username" required></div>
+                <div class="input-group"><input type="password" name="reg_password" placeholder="Create Password" required></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Register Driver</button>
+        </form>
+    </div>
+
+    <script>
+        const lForm = document.getElementById('loginForm');
+        const rForm = document.getElementById('registerForm');
+        const lBtn = document.getElementById('loginBtn');
+        const rBtn = document.getElementById('registerBtn');
+
+        function showRegister() {
+            lForm.style.display = 'none';
+            rForm.style.display = 'block';
+            rBtn.classList.add('active');
+            lBtn.classList.remove('active');
+        }
+
+        function showLogin() {
+            rForm.style.display = 'none';
+            lForm.style.display = 'block';
+            lBtn.classList.add('active');
+            rBtn.classList.remove('active');
+        }
+        
+        // Ensure Login is shown first
+        showLogin();
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard - Safe Drive AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+<body class="dashboard-page">
+
+    <nav class="navbar glass">
+        <div class="logo">Safe Drive <span>AI</span></div>
+        <div class="status-indicator">
+            <span id="systemStatus" class="status-safe">
+                <i class="fas fa-check-circle"></i> System Active
+            </span>
+        </div>
+        <div class="nav-links">
+            <a href="/history"><i class="fas fa-history"></i> View History</a>
+            <a href="/profile"><i class="fas fa-user-edit"></i> Edit Profile</a>
+            <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+
+    <main class="dashboard-main">
+        <div class="camera-container glass">
+            <div class="video-wrapper">
+                <video id="videoElement" autoplay playsinline></video>
+                <canvas id="canvasElement"></canvas>
+                
+                <div id="alertOverlay" class="alert-overlay hidden">
+                    <h2 id="alertMessage">DROWSINESS DETECTED!</h2>
+                </div>
+            </div>
+
+            <div class="camera-controls">
+                <button id="startBtn" class="btn btn-start"><i class="fas fa-play"></i> Start Camera</button>
+                <button id="stopBtn" class="btn btn-stop hidden"><i class="fas fa-stop"></i> Stop Monitoring</button>
+            </div>
+        </div>
+
+        <aside class="telemetry-panel">
+            <div class="telemetry-card glass">
+                <h3><i class="fas fa-eye"></i> Eye Status (EAR)</h3>
+                <div class="stat-value" id="earValue">0.00</div>
+                <div class="progress-bar">
+                    <div id="earProgress" class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="telemetry-card glass">
+                <h3><i class="fas fa-mouth"></i> Mouth Status (MAR)</h3>
+                <div class="stat-value" id="marValue">0.00</div>
+                <div class="progress-bar">
+                    <div id="marProgress" class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="telemetry-card glass">
+                <h3><i class="fas fa-clock"></i> Alert Timer</h3>
+                <div class="stat-value" id="timerValue">0s</div>
+                <p>Threshold: 5s for Emergency</p>
+            </div>
+        </aside>
+    </main>
+
+    <canvas id="captureCanvas" style="display: none;"></canvas>
+
+    <audio id="alertSound" src="/static/audio/alert.mp3" preload="auto"></audio>
+    <audio id="emergencySound" src="/static/audio/emergency.mp3" preload="auto" loop></audio>
+
+</body>
+</html>
